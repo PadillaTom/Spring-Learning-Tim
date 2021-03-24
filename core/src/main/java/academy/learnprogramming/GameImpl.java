@@ -16,7 +16,18 @@ public class GameImpl implements Game{
     private int remainingGuesses;
     private boolean validNumberRange = true;
 
-//  Public Methods:
+//    Constructor based Dependency Injection:
+//    public GameImpl(NumberGenerator numberGenerator) {
+//        this.numberGenerator = numberGenerator;
+//    }
+
+//    Setter based Dependency Injection:
+    public void setNumberGenerator(NumberGenerator numberGenerator){
+        this.numberGenerator = numberGenerator;
+    };
+
+
+    //  Public Methods:
     @Override
     public void reset() {
         smallest = 0;

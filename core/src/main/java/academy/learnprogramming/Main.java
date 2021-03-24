@@ -12,18 +12,23 @@ public class Main {
     public static void main(String[] args) {
         log.info("Guess the Number Game");
 
-//        Create Context:
+//        ***** Create Context:
         ConfigurableApplicationContext context
                 = new ClassPathXmlApplicationContext(CONFIG_LOCATION);
 //        Get Beans:
         NumberGenerator numberGenerator
                 = context.getBean("numberGenerator", NumberGenerator.class);
+        Game game
+                = context.getBean(Game.class);
 
-//        APP:
+//        ---> MAIN APP:
         int number = numberGenerator.next();
         log.info("number = {}", number);
+        game.reset();
 
-//        Close Context:
+//        END MAIN APP <---
+
+//        ***** Close Context:
         context.close();
     }
 }
