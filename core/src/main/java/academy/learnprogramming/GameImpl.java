@@ -2,6 +2,7 @@ package academy.learnprogramming;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -10,6 +11,7 @@ public class GameImpl implements Game{
 //  Constants:
     private static final Logger log = LoggerFactory.getLogger(GameImpl.class);
 //  Fields:
+    @Autowired
     private NumberGenerator numberGenerator;
     private int guessCount = 10;
     private int number;
@@ -18,16 +20,6 @@ public class GameImpl implements Game{
     private int biggest;
     private int remainingGuesses;
     private boolean validNumberRange = true;
-
-//    Constructor based Dependency Injection:
-//    public GameImpl(NumberGenerator numberGenerator) {
-//        this.numberGenerator = numberGenerator;
-//    }
-
-//    Setter based Dependency Injection:
-    public void setNumberGenerator(NumberGenerator numberGenerator){
-        this.numberGenerator = numberGenerator;
-    };
 
 // Init:
     @PostConstruct
