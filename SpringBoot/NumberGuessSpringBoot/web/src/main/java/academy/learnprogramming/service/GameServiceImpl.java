@@ -12,26 +12,28 @@ import javax.annotation.PostConstruct;
 @Service
 public class GameServiceImpl implements GameService {
 
-    //    Fields:
+    // == fields ==
     private final Game game;
     private final MessageGenerator messageGenerator;
-    //    Constructors:
 
+    // == constructors ==
     @Autowired
     public GameServiceImpl(Game game, MessageGenerator messageGenerator) {
         this.game = game;
         this.messageGenerator = messageGenerator;
     }
-    //    Init
+
+    // == init ==
     @PostConstruct
-    public void init(){
-        log.info("number ={ } ", game.getNumber());
-        log.info("mainMessage = {} ", messageGenerator.getMainMessage());
+    public void init() {
+        log.info("number = {}", game.getNumber());
+        log.info("mainMessage = {}", messageGenerator.getMainMessage());
     }
-    //    Methods:
+
+    // == public methods ==
     @Override
     public boolean isGameOver() {
-        return game.isGameWon()|| game.isGameLost();
+        return game.isGameWon() || game.isGameLost();
     }
 
     @Override
